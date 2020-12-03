@@ -1,9 +1,9 @@
-const route = require ('route');
-module.export = function (app){
-    app.get('notes', function (must, send){
-        send.sendFile(route.join(name, 'public/notes.html'));
+const path = require('path');
+module.exports = function(app){
+    app.get('/notes', function(req, res) {
+        res.sendFile(path.join(__dirname,'../notes.html'));
     });
-    app.get('*', function (must,send) {
-        send.sendFile(path.join(name,'public/index.html'));
+    app.get("*", function(req, res) {
+        res.sendFile(path.join(__dirname,'../index.html'));
     });
 };
