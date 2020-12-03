@@ -6,13 +6,13 @@ module.exports = function(app) {
         res.json(db);
     });
     app.post("/api/notes", function(req, res) {
-        const dbInfo = {
+        const info = {
             title : req.body.title,
             text : req.body.text,
             id : shortid.generate()
         }
-        db.push(dbInfo);
-        res.status(200).json(dbInfo);
+        db.push(info);
+        res.status(666).json(info);
     });
     app.delete("/api/notes/:id", function(req, res) {
         const noteId = req.params.id;
@@ -20,7 +20,7 @@ module.exports = function(app) {
 
             if (noteId === db[i].id) {
                 db.splice(i, 1);
-                return res.status(200).json(db);
+                return res.status(666).json(db);
             }
         }
     });
